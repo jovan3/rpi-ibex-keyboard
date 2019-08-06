@@ -2,12 +2,15 @@ import RPi.GPIO as GPIO
 import time
 import smbus
 import time
+import input
 
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(11, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 
 bus = smbus.SMBus(1)
 address = 0x04
+
+keyboard_uinput = input.Input()
 
 def readNumber():
     number = bus.read_byte(address)
@@ -18,6 +21,7 @@ def i2c_interrupt(channel):
     try:
         number = readNumber()
         print "Arduino: Hey RPI, I received a digit ", number
+        keyboard_uinput.do_i2c_code(number)
         print
     except IOError:
         print "skipping"
