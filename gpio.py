@@ -9,11 +9,6 @@ GPIO.setup(11, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 bus = smbus.SMBus(1)
 address = 0x04
 
-def writeNumber(value):
-    bus.write_byte(address, value)
-    # bus.write_byte_data(address, 0, value)
-    return -1
-
 def readNumber():
     number = bus.read_byte(address)
     # number = bus.read_byte_data(address, 1)
@@ -21,11 +16,6 @@ def readNumber():
 
 def i2c_interrupt(channel):
     try:
-        writeNumber(1)
-        print "RPI: Hi Arduino, I sent you 1"
-        # sleep one second
-        time.sleep(0.1)
-
         number = readNumber()
         print "Arduino: Hey RPI, I received a digit ", number
         print
