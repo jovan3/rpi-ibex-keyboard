@@ -3,15 +3,19 @@
 
 const int PRESSED_OFFSET = 100;
 const int NOT_PRESSED_OFFSET = 0;
+const int INT_GPIO = 13;
 
-const byte ROWS = 2; //four rows
-const byte COLS = 5; //three columns
+const byte ROWS = 5; //four rows
+const byte COLS = 10; //three columns
 char keys[ROWS][COLS] = {
-  {'1', '2', '3', '4', '5'},
-  {'6', '7', '8', '9', '0'}
+  {1, 2, 3, 4, 5, 6, 7, 8, 9, 10},
+  {11, 12, 13, 14, 15, 16, 17, 18, 19, 20},
+  {21, 22, 23, 24, 25, 26, 27, 28, 29, 30},
+  {31, 32, 33, 34, 35, 36, 37, 38, 39, 40},
+  {41, 42, 43, 44, 45, 46, 47, 48, 49, 50},
 };
-byte rowPins[ROWS] = {0, A0}; //connect to the row pinouts of the kpd
-byte colPins[COLS] = {2, 3, 4, 5, 6}; //connect to the column pinouts of the kpd
+byte rowPins[ROWS] = {A0, A1, A2, A3, 0}; //connect to the row pinouts of the kpd
+byte colPins[COLS] = {11, 10, 9, 8, 7, 6, 5, 4, 3, 2}; //connect to the column pinouts of the kpd
 
 Keypad kpd = Keypad( makeKeymap(keys), rowPins, colPins, ROWS, COLS );
 
@@ -26,7 +30,7 @@ char keyVal = 0;
 int currentPressedOffset = 0;
 
 void setup() {
-  pinMode(10, OUTPUT);
+  pinMode(INT_GPIO, OUTPUT);
 
   Wire.begin(SLAVE_ADDRESS);
   Wire.onRequest(sendData);
@@ -77,9 +81,9 @@ void loop() {
         keyVal = kpd.key[i].kchar + currentPressedOffset;
 
 
-        digitalWrite(10, LOW);
+        digitalWrite(INT_GPIO, LOW);
         delay(5);
-        digitalWrite(10, HIGH);
+        digitalWrite(INT_GPIO, HIGH);
       }
     }
   }

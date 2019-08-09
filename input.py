@@ -1,37 +1,41 @@
 import uinput
 from event_capability import UINPUT_CAPAB_LIST
-
-KEY_CODES = {
-    51: uinput.KEY_3,
-    52: uinput.KEY_4,
-    53: uinput.KEY_5,
-    54: uinput.KEY_6,
-    55: uinput.KEY_7
-}
+from layout import KEY_CODES, MODIFIER_KEYS
 
 class Input:
 
     PRESSED = 'pressed'
-    UNPRESSED = 'unpressed'
+    RELEASED = 'released'
     
     def __init__(self):
         self.device = uinput.Device(UINPUT_CAPAB_LIST)
-        self.state = {}
+        self.state = set()
 
     def do_i2c_code(self, code):
         event, key = self.code_to_event(code)
 
+        print key
+        
         if event == Input.PRESSED:
-            print "click", key
-            self.device.emit_click(key)
+            self.state.add(key)
+            
+            if any(pressed in MODIFIER_KEYS for pressed in self.state):
+                self.device.emit_combo(list(self.state))
+            else:
+                self.device.emit_click(key)
+
+        if event == Input.RELEASED:
+            self.state.remove(key)
+
+        print "New state ", self.state
 
     def code_to_event(self, code):
         if code > 100:
             code_real_value = code - 100
-            event = Input.UNPRESSED
+            event = Input.PRESSED
         else:
             code_real_value = code
-            event = Input.PRESSED
+            event = Input.RELEASED
             
         key = KEY_CODES[code_real_value]
 

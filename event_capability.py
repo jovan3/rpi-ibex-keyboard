@@ -71,4 +71,6 @@ UINPUT_CAPAB_LIST = [
     uinput.KEY_F8,
     uinput.KEY_F9,
     uinput.KEY_F10,
+    uinput.KEY_KPPLUS,
+    uinput.KEY_KPMINUS
 ]
