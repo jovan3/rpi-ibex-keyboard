@@ -3,6 +3,7 @@
 ## Wiring
 
 |Module|Raspberry Pi Zero W|
+|---|---|
 |SDO/MISO|MISO|
 |LED (56Ohm)|GPIO18|
 |SCK|SCLK|
