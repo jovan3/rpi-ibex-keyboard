@@ -4,8 +4,10 @@ import smbus
 import time
 import input
 
+GPIO_PIN = 26
+
 GPIO.setmode(GPIO.BCM)
-GPIO.setup(11, GPIO.IN, pull_up_down=GPIO.PUD_UP)
+GPIO.setup(GPIO_PIN, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 
 bus = smbus.SMBus(1)
 address = 0x04
@@ -27,7 +29,7 @@ def i2c_interrupt(channel):
         print "skipping"
 
         
-GPIO.add_event_detect(11, GPIO.FALLING, callback=i2c_interrupt, bouncetime=10)
+GPIO.add_event_detect(GPIO_PIN, GPIO.FALLING, callback=i2c_interrupt, bouncetime=10)
 
 try: 
     while True:
