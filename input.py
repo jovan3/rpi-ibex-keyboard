@@ -14,8 +14,6 @@ class Input:
     def do_i2c_code(self, code):
         event, key = self.code_to_event(code)
 
-        print key
-        
         if event == Input.PRESSED:
             self.state.add(key)
 
@@ -33,8 +31,6 @@ class Input:
 
         if event == Input.RELEASED:
             self.state.remove(key)
-
-        print "New state ", self.state
 
     def modifier_pressed(self):
         return any(pressed in MODIFIER_KEYS for pressed in self.state)
