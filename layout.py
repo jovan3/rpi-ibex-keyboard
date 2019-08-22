@@ -45,12 +45,47 @@ KEY_CODES = {
     42: uinput.KEY_LEFTALT,
     43: uinput.KEY_SPACE,
     44: uinput.KEY_SLASH,
-    45: uinput.KEY_APOSTROPHE,
+    45: uinput.KEY_FN,
     46: uinput.KEY_TAB,
     47: uinput.KEY_KPPLUS,
     48: uinput.KEY_KPMINUS,
     49: uinput.KEY_BACKSPACE,
     50: uinput.KEY_ENTER    
+}
+
+FN_KEYS = {
+    uinput.KEY_1: [uinput.KEY_RIGHTBRACE],
+    uinput.KEY_2: [uinput.KEY_GRAVE],
+    uinput.KEY_3: [uinput.KEY_LEFTSHIFT, uinput.KEY_LEFTBRACE],
+    uinput.KEY_4: [uinput.KEY_LEFTBRACE],
+    uinput.KEY_5: [uinput.KEY_LEFTSHIFT, uinput.KEY_RIGHTBRACE],
+    uinput.KEY_6: [uinput.KEY_APOSTROPHE],
+    uinput.KEY_7: [uinput.KEY_LEFTSHIFT, uinput.KEY_APOSTROPHE],
+    uinput.KEY_8: [uinput.KEY_SLASH],
+    uinput.KEY_9: [uinput.KEY_LEFTSHIFT, uinput.KEY_SLASH],
+    uinput.KEY_0: [uinput.KEY_ESC],
+    uinput.KEY_Q: [uinput.KEY_F1],
+    uinput.KEY_W: [uinput.KEY_F2],
+    uinput.KEY_E: [uinput.KEY_F3],
+    uinput.KEY_R: [uinput.KEY_F4],
+    uinput.KEY_T: [uinput.KEY_F5],
+    uinput.KEY_Y: [uinput.KEY_F6],
+    uinput.KEY_U: [uinput.KEY_F7],
+    uinput.KEY_I: [uinput.KEY_F8],
+    uinput.KEY_O: [uinput.KEY_F9],
+    uinput.KEY_P: [uinput.KEY_F10],
+    uinput.KEY_A: [uinput.KEY_F11],
+    uinput.KEY_S: [uinput.KEY_F12],
+    uinput.KEY_H: [uinput.KEY_PAGEUP],
+    uinput.KEY_B: [uinput.KEY_PAGEDOWN],
+    uinput.KEY_Z: [uinput.KEY_INSERT],
+    uinput.KEY_X: [uinput.KEY_DELETE],
+    uinput.KEY_C: [uinput.KEY_HOME],
+    uinput.KEY_V: [uinput.KEY_END],
+    uinput.KEY_N: [uinput.KEY_LEFT],
+    uinput.KEY_M: [uinput.KEY_DOWN],
+    uinput.KEY_COMMA: [uinput.KEY_RIGHT],
+    uinput.KEY_K: [uinput.KEY_UP]
 }
 
 MODIFIER_KEYS = [
