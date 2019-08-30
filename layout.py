@@ -47,8 +47,8 @@ KEY_CODES = {
     44: uinput.KEY_SLASH,
     45: uinput.KEY_FN,
     46: uinput.KEY_TAB,
-    47: uinput.KEY_KPPLUS,
-    48: uinput.KEY_KPMINUS,
+    47: uinput.KEY_EQUAL,
+    48: uinput.KEY_MINUS,
     49: uinput.KEY_BACKSPACE,
     50: uinput.KEY_ENTER    
 }
