@@ -2,7 +2,7 @@ import RPi.GPIO as GPIO
 import time
 import smbus
 import time
-import input
+#import input
 
 GPIO_PIN = 13
 
@@ -12,7 +12,10 @@ GPIO.setup(GPIO_PIN, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 bus = smbus.SMBus(1)
 address = 0x04
 
-keyboard_uinput = input.Input()
+#import input
+#keyboard_uinput = input.Input()
+import evdev_wrapper
+keyboard_uinput = evdev_wrapper.EvdevInput()
 
 def readNumber():
     number = bus.read_byte(address)
