@@ -57,6 +57,8 @@ Usage: con2fbmap console [framebuffer]
 Example: con2fbmap 1 1
 ```
 
+Add that line to ```/etc/rc.local``` to set fb1 as coonsole framebuffer device.
+
 ## Touchscreen configuration
 
 The touchscreen is wired to use the SPI1 interface of raspberry pi.
